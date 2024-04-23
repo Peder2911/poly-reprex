@@ -1,0 +1,34 @@
+[project]
+name = "poly-reprex"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Peder Landsverk", email = "peder.landsverk@soprasteria.com" }
+]
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "python-polylith @ file:///Users/peder/Projects/Tools/poly-reprex/../python-polylith",
+]
+#dev-dependencies = ["polylith-cli"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/poly_reprex"]
+
+[tool.polylith.bricks]
+"components/foo/src/reprex/foo" = "reprex/foo"
+"components/bar/src/reprex/bar" = "reprex/bar"
+"components/reprex/beta" = "reprex/beta"
+"components/reprex/alpha" = "reprex/alpha"
+
